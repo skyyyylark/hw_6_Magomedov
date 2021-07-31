@@ -2,9 +2,8 @@ import os
 import re
 
 class Library:
-	def __init__(self):
-		self._secret_key = os.environ.get("SECRET_LIB_KEY") 
-		self._books_list = ['The man who laughs', 'Metro-2033', 'White Fang', 'The Amphibian']
+	_secret_key = os.environ.get("SECRET_LIB_KEY") 
+	_books_list = ['The man who laughs', 'Metro-2033', 'White Fang', 'The Amphibian']
 
 
 	@staticmethod
@@ -12,7 +11,7 @@ class Library:
 		if os.environ.get("SECRET_LIB_KEY") is None:
 			return "Forbidden action"
 		else:
-			return self._books_list
+			return _books_list
 
 	@staticmethod
 	def give_book(book_name):
@@ -20,8 +19,8 @@ class Library:
 		if book_name is None:
 			return f"Can't give this book {book_name} to you", False
 		else:
-			self._books_list.remove(book_name)
-			return self._books_list
+			_books_list.remove(book_name)
+			return _books_list
 
 
 	@staticmethod
